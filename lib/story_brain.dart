@@ -11,10 +11,10 @@ class StoryBrain {
   List<Story> _storyData = [
     Story(
         storyTitle:
-        'Your car has blown a tire on a winding road in the middle of nowhere with no cell phone reception. You decide to hitchhike. A rusty pickup truck rumbles to a stop next to you. A man with a wide brimmed hat with soulless eyes opens the passenger door for you and asks: "Need a ride, boy?"',
-        choice1: 'I\'ll hop in. Thanks for the help!',
-        choice2: 'Better ask him if he\'s a murderer first.',
-        storyPic: Image.asset('background.png'),),
+        'Mummy opens the curtains and the sunlight bursts in. She say\'s it\'s such a lovely day! Who wants to go to the beach?',
+      choice1: 'YES PLEASE!',
+      choice2: 'Let\'s stay in and play computer games all day',
+      storyPic: Image.asset('flats_in_the_city_hot_sunny_day.png'),),
 
     Story(
         storyTitle: 'He nods slowly, unphased by the question.',
