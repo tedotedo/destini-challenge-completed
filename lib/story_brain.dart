@@ -27,7 +27,7 @@ class StoryBrain {
         choice2: 'It\'s him or me! You take the knife and stab him.'),
     Story(
         storyTitle:
-            'What? Such a cop out! Did you know traffic accidents are the second leading cause of accidental death for most adult age groups?',
+        'What? That\'s such a cop out! Did you know traffic accidents are the second leading cause of accidental death for most adult age groups?',
         choice1: 'Restart',
         choice2: ''),
     Story(
