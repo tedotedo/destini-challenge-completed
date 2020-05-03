@@ -1,5 +1,9 @@
 //TODO: Step 6 - import the story.dart file into this file.
+import 'package:flutter/cupertino.dart';
+import 'package:audioplayers/audio_cache.dart';
 import 'story.dart';
+
+
 
 //TODO: Step 5 - Create a new class called StoryBrain.
 class StoryBrain {
@@ -7,9 +11,11 @@ class StoryBrain {
   List<Story> _storyData = [
     Story(
         storyTitle:
-            'Your car has blown a tire on a winding road in the middle of nowhere with no cell phone reception. You decide to hitchhike. A rusty pickup truck rumbles to a stop next to you. A man with a wide brimmed hat with soulless eyes opens the passenger door for you and asks: "Need a ride, boy?".',
+            'Your car has blown a tire on a winding road in the middle of nowhere with no cell phone reception. You decide to hitchhike. A rusty pickup truck rumbles to a stop next to you. A man with a wide brimmed hat with soulless eyes opens the passenger door for you and asks: "Need a ride, boy?".Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         choice1: 'I\'ll hop in. Thanks for the help!',
-        choice2: 'Better ask him if he\'s a murderer first.'),
+        choice2: 'Better ask him if he\'s a murderer first.',
+        storyPic: Image.asset('background.png'),),
+
     Story(
         storyTitle: 'He nods slowly, unphased by the question.',
         choice1: 'At least he\'s honest. I\'ll climb in.',
@@ -40,60 +46,74 @@ class StoryBrain {
 
 //TODO: Step 8 - Create a method called getStory() that returns the first storyTitle from _storyData.
   String getStory() {
-    return _storyData[_storyNumber].storyTitle;
+    return _storyData[storyNumber].storyTitle;
   }
 
 //TODO: Step 11 - Create a method called getChoice1() that returns the text for the first choice1 from _storyData.
   String getChoice1() {
-    return _storyData[_storyNumber].choice1;
+    return _storyData[storyNumber].choice1;
   }
 
 //TODO: Step 12 - Create a method called getChoice2() that returns the text for the first choice2 from _storyData.
   String getChoice2() {
-    return _storyData[_storyNumber].choice2;
+    return _storyData[storyNumber].choice2;
   }
 
 //TODO: Step 16 - Create a property called storyNumber which starts with a value of 0. This will be used to track which story the user is currently viewing.
 
   //TODO: Step 25 - Change the storyNumber property into a private property so that only story_brain.dart has access to it. You can do this by right clicking on the name (storyNumber) and selecting Refactor -> Rename to make the change across all the places where it's used.
-  int _storyNumber = 0;
+  int storyNumber = 0;
 
 //TODO: Step 17 - Create a method called nextStory(), it should not have any outputs but it should have 1 input called choiceNumber which will be the choice number (int) made by the user.
   void nextStory(int choiceNumber) {
     //TODO: Step 21 - Using the story plan, update nextStory to change the storyNumber depending on the choice made by the user.
     //When user is on story0 and they chose choice1, the story should progress to story2.
-    if (choiceNumber == 1 && _storyNumber == 0) {
-      _storyNumber = 2;
-    } else if (choiceNumber == 2 && _storyNumber == 0) {
-      _storyNumber = 1;
-    } else if (choiceNumber == 1 && _storyNumber == 1) {
-      _storyNumber = 2;
-    } else if (choiceNumber == 2 && _storyNumber == 1) {
-      _storyNumber = 3;
-    } else if (choiceNumber == 1 && _storyNumber == 2) {
-      _storyNumber = 5;
-    } else if (choiceNumber == 2 && _storyNumber == 2) {
-      _storyNumber = 4;
+    if (choiceNumber == 1 && storyNumber == 0) {
+      storyNumber = 2;
+    } else if (choiceNumber == 2 && storyNumber == 0) {
+      storyNumber = 1;
+    } else if (choiceNumber == 1 && storyNumber == 1) {
+      storyNumber = 2;
+    } else if (choiceNumber == 2 && storyNumber == 1) {
+      storyNumber = 3;
+    } else if (choiceNumber == 1 && storyNumber == 2) {
+      storyNumber = 5;
+    } else if (choiceNumber == 2 && storyNumber == 2) {
+      storyNumber = 4;
     }
     //TODO: Step 22 - In nextStory() if the storyNumber is equal to 3 or 4 or 5, that means it's the end of the game and it should call a method called restart() that resets the storyNumber to 0.
-    else if (_storyNumber == 3 || _storyNumber == 4 || _storyNumber == 5) {
+    else if (storyNumber == 3 || storyNumber == 4 || storyNumber == 5) {
       restart();
     }
   }
 
   void restart() {
-    _storyNumber = 0;
+    storyNumber = 0;
   }
 
 //TODO: Step 20 - Download the story plan here: https://drive.google.com/uc?export=download&id=1KU6EghkO9Hf2hRM0756xFHgNaZyGCou3
 
 //TODO: Step 27 - Create a method called buttonShouldBeVisible() which checks to see if storyNumber is 0 or 1 or 2 (when both buttons should show choices) and return true if that is the case, else it should return false.
   bool buttonShouldBeVisible() {
-    //You could also just check if (_storyNumber < 3)
-    if (_storyNumber == 0 || _storyNumber == 1 || _storyNumber == 2) {
+    //You could also just check if (storyNumber < 3)
+    if (storyNumber == 0 || storyNumber == 1 || storyNumber == 2) {
       return true;
     } else {
       return false;
     }
+  }
+
+  //method to return the appropriate background pic for the story segment
+  String getBackgroundAssetName(){
+    if (storyNumber==0)
+      return 'background0.jpg';
+    else
+      return 'background.png';
+  }
+  //method to return the appropriate background sound for the story segment
+  //0.wav = truck noise
+  void playSound() {
+    final player = AudioCache();
+    player.play('$storyNumber.wav');
   }
 }

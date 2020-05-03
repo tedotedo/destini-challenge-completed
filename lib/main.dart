@@ -5,6 +5,13 @@ import 'story_brain.dart';
 
 void main() => runApp(Destini());
 
+//this method returns the correctly formatted asset name with the folder address for the image
+String getImageName(url) {
+  return ('images/$url');
+  print ('images/$url');
+}
+
+
 class Destini extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -21,17 +28,19 @@ class StoryPage extends StatefulWidget {
   _StoryPageState createState() => _StoryPageState();
 }
 
+
 class _StoryPageState extends State<StoryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('images/background.png'),
-            fit: BoxFit.cover,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              //the next statement gets the correct image for the current story part, with the correct folder address for the asset
+              image: AssetImage(getImageName(storyBrain.getBackgroundAssetName())),
+              fit: BoxFit.cover,
+            ),
           ),
-        ),
         padding: EdgeInsets.symmetric(vertical: 50.0, horizontal: 15.0),
         constraints: BoxConstraints.expand(),
         child: SafeArea(
@@ -54,6 +63,7 @@ class _StoryPageState extends State<StoryPage> {
                 flex: 2,
                 child: FlatButton(
                   onPressed: () {
+                    storyBrain.playSound();
                     //Choice 1 made by user.
                     //TODO: Step 18 - Call the nextStory() method from storyBrain and pass the number 1 as the choice made by the user.
                     //TODO: Step 24 - Run the app and try to figure out what code you need to add to this file to make the story change when you press on the choice buttons.
